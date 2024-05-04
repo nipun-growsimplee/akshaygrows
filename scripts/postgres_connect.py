@@ -59,8 +59,9 @@ def get_conn(SSH_requiered,key_path):   #for getting a conn as a result
                 ssh_private_key= key_path,
                 ssh_private_key_password= "",
                 remote_bind_address=(DB_HOST, 5432))
-        print('Tunnel Started')
+        print('Starting Tunnel Started')
         ssh_tunnel.start()
+        print('Started, getting conn')
         conn = psy.connect(
             host=ssh_tunnel.local_bind_host,
             port=ssh_tunnel.local_bind_port,
